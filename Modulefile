@@ -1,0 +1,10 @@
+name          'elibus-tivolism'
+version       '0.1.0'
+source        'https://github.com/elibus/puppet-tivolism.git'
+author        'Marco Tizzoni'
+license       'Apache 2.0'
+summary       'Install and configure Tivoli Storage Manager'
+description   ''
+project_page  'https://github.com/elibus/puppet-tivolism'
+
+dependency 'puppetlabs/stdlib'
