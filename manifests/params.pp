@@ -6,8 +6,15 @@
 class tivolism::params (
   $tcpserveraddress = undef,
   $inclexcl = undef,
+  $package_name = [ 'TIVsm-API64', 'TIVsm-BA' ],
+  $deps = [
+    'compat-libstdc++-33.i686',
+    'compat-libstdc++-33.x86_64',
+    'libstdc++.x86_64',
+    'libstdc++.i686'
+  ],
   $additional_packages = [],
-  $service_name = 'tivolism',
+  $service_name = 'dsmcad',
   $commmethod = 'TCPIP',
   $tcpport = '1500',
   $tcpnodelay = 'YES',
@@ -23,37 +30,12 @@ class tivolism::params (
   $largecommbuffers = 'yes',
   $schedlogname = '/dev/null',
   $schedmode = 'prompt',
-  $group  = 'root',
-  $owner  = 'root',
-  #$enable_dsmc_sched =
 ) {
-
   case $::osfamily {
     'RedHat': {
-      $package_name = [ 'TIVsm-API64', 'TIVsm-BA' ]
     }
     default: {
       fail("${::operatingsystem} not supported")
-    }
-  }
-
-  case $::architecture {
-    'x86_64': {
-      $deps = [
-        'libstdc++.x86_64',
-        'libstdc++.i686',
-        'compat-libstdc++.x86_64',
-        'compat-libstdc++.i686'
-      ]
-    }
-    'i686': {
-      $deps = [
-        'libstdc++.i686',
-        'compat-libstdc++.i686'
-      ]
-    }
-    default: {
-      fail("${::architecture} architecture not supported")
     }
   }
 }

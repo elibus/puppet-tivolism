@@ -12,8 +12,8 @@ class tivolism (
   $inclexcl = $tivolism::params::inclexcl,
   $package_name = $tivolism::params::package_name,
   $deps = $tivolism::params::deps,
-  $service_name = $tivolism::params::service_name,
   $additional_packages = $tivolism::params::additional_packages,
+  $service_name = $tivolism::params::service_name,
   $commmethod = $tivolism::params::commmethod,
   $tcpport = $tivolism::params::tcpport,
   $tcpnodelay = $tivolism::params::tcpnodelay,
@@ -29,8 +29,6 @@ class tivolism (
   $largecommbuffers = $tivolism::params::largecommbuffers,
   $schedlogname = $tivolism::params::schedlogname,
   $schedmode = $tivolism::params::schedmode,
-  $group  = $tivolism::params::group,
-  $owner  = $tivolism::params::user
 ) inherits tivolism::params {
 
   # validate parameters here
@@ -38,8 +36,8 @@ class tivolism (
   validate_absolute_path($inclexcl)
   validate_array($package_name)
   validate_array($deps)
-  validate_string($service_name)
   validate_array($additional_packages)
+  validate_string($service_name)
   validate_string($commmethod)
   validate_re($tcpport, '\d+')
   validate_string($tcpnodelay)
@@ -55,9 +53,6 @@ class tivolism (
   validate_string($largecommbuffers)
   validate_string($schedlogname)
   validate_string($schedmode)
-  validate_string($owner)
-  validate_string($group)
-  #validate_bool($enable_dsmc_sched)
 
   class { 'tivolism::install': } ->
   class { 'tivolism::config': } ~>
