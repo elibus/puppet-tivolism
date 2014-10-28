@@ -7,12 +7,12 @@ class tivolism::install {
   }
 
   ensure_packages($tivolism::params::deps, {
-      ensure => 'installed'
+      ensure => present
     }
   )
 
   ensure_packages($tivolism::params::additional_packages, {
-      ensure => 'installed'
+      ensure => present
     }
   )
 }

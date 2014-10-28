@@ -8,20 +8,20 @@
 #   Explanation of what this parameter affects and what it defaults to.
 #
 class tivolism (
-  $TCPSERVERADDRESS = $tivolism::params::TCPSERVERADDRESS,,
-  $Inclexcl = undef,
+  $tcpserveraddress = $tivolism::params::tcpserveraddress,
+  $inclexcl = $tivolism::params::inclexcl,
   $package_name = $tivolism::params::package_name,
   $deps = $tivolism::params::deps,
   $service_name = $tivolism::params::service_name,
   $additional_packages = $tivolism::params::additional_packages,
-  $COMMMETHOD = $tivolism::params::COMMMETHOD,
-  $TCPPORT = $tivolism::params::TCPPORT,
-  $TCPNODELAY = $tivolism::params::TCPNODELAY,
-  $TCPCLIENTPORT = $tivolism::params::TCPCLIENTPORT,
-  $SCHEDLOGRETENTION = $tivolism::params::SCHEDLOGRETENTION,
-  $PASSWORDACCESS = $tivolism::params::PASSWORDACCESS,
-  $ERRORLOGRETENTION = $tivolism::params::ERRORLOGRETENTION,
-  $ERRORLOGNAME = $tivolism::params::ERRORLOGNAME,
+  $commmethod = $tivolism::params::commmethod,
+  $tcpport = $tivolism::params::tcpport,
+  $tcpnodelay = $tivolism::params::tcpnodelay,
+  $tcpclientport = $tivolism::params::tcpclientport,
+  $schedlogretention = $tivolism::params::schedlogretention,
+  $passwordaccess = $tivolism::params::passwordaccess,
+  $errorlogretention = $tivolism::params::errorlogretention,
+  $errorlogname = $tivolism::params::errorlogname,
   $tcpbuffsize = $tivolism::params::tcpbuffsize,
   $tcpwindowsize = $tivolism::params::tcpwindowsize,
   $tcpnodelay = $tivolism::params::tcpnodelay,
@@ -30,21 +30,24 @@ class tivolism (
   $schedlogname = $tivolism::params::schedlogname,
   $schedmode = $tivolism::params::schedmode,
   $group  = $tivolism::params::group,
-  $owner  = '$tivolism::params::user,
-
+  $owner  = $tivolism::params::user
 ) inherits tivolism::params {
 
   # validate parameters here
-  validate_absolute_path($Inclexcl)
-  validate_string($TCPSERVERADDRESS)
-  validate_string($COMMMETHOD)
-  validate_re($TCPPORT, '\d+')
-  validate_string($TCPNODELAY)
-  validate_re($TCPCLIENTPORT, '\d+')
-  validate_string($SCHEDLOGRETENTION)
-  validate_string($PASSWORDACCESS)
-  validate_string($ERRORLOGRETENTION)
-  validate_absolute_path($ERRORLOGNAME)
+  validate_string($tcpserveraddress)
+  validate_absolute_path($inclexcl)
+  validate_array($package_name)
+  validate_array($deps)
+  validate_string($service_name)
+  validate_array($additional_packages)
+  validate_string($commmethod)
+  validate_re($tcpport, '\d+')
+  validate_string($tcpnodelay)
+  validate_re($tcpclientport, '\d+')
+  validate_string($schedlogretention)
+  validate_string($passwordaccess)
+  validate_string($errorlogretention)
+  validate_absolute_path($errorlogname)
   validate_re($tcpbuffsize, '\d+')
   validate_re($tcpwindowsize, '\d+')
   validate_string($tcpnodelay)

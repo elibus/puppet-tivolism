@@ -4,20 +4,18 @@
 # It sets variables according to platform
 #
 class tivolism::params (
-  $TCPSERVERADDRESS = undef,
-  $Inclexcl = undef,
-  $package_name = undef,
-  $deps = undef,
-  $additional_packages = undef,
-  $service_name = 'dsmc-sched',
-  $COMMMETHOD = 'TCPIP',
-  $TCPPORT = '1500',
-  $TCPNODELAY = 'YES',
-  $TCPCLIENTPORT ='1501',
-  $SCHEDLOGRETENTION = '8',
-  $PASSWORDACCESS = 'GENERATE',
-  $ERRORLOGRETENTION = '8',
-  $ERRORLOGNAME = "/var/log/${::hostname}.adsmerr.log",
+  $tcpserveraddress = undef,
+  $inclexcl = undef,
+  $additional_packages = [],
+  $service_name = 'tivolism',
+  $commmethod = 'TCPIP',
+  $tcpport = '1500',
+  $tcpnodelay = 'YES',
+  $tcpclientport ='1501',
+  $schedlogretention = '8',
+  $passwordaccess = 'GENERATE',
+  $errorlogretention = '8',
+  $errorlogname = "/var/log/${::hostname}.adsmerr.log",
   $tcpbuffsize = '32',
   $tcpwindowsize = '220',
   $tcpnodelay = 'yes',
@@ -33,7 +31,6 @@ class tivolism::params (
   case $::osfamily {
     'RedHat': {
       $package_name = [ 'TIVsm-API64', 'TIVsm-BA' ]
-      #$service_name = 'TIVsm-'
     }
     default: {
       fail("${::operatingsystem} not supported")
@@ -46,6 +43,12 @@ class tivolism::params (
         'libstdc++.x86_64',
         'libstdc++.i686',
         'compat-libstdc++.x86_64',
+        'compat-libstdc++.i686'
+      ]
+    }
+    'i686': {
+      $deps = [
+        'libstdc++.i686',
         'compat-libstdc++.i686'
       ]
     }

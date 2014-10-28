@@ -3,29 +3,29 @@
 # This class is called from tivolism
 #
 class tivolism::config {
-  file { 'dsm.sys':
+  file { '/opt/tivoli/tsm/client/ba/bin/dsm.sys':
     path    => '/opt/tivoli/tsm/client/ba/bin/dsm.sys',
     ensure  => file,
-    owner   => $tivolism::params::user,
-    group   => $tivolism::params::group,
+    owner   => $tivolism::user,
+    group   => $tivolism::group,
     mode    => '0664',
-    content => template('tivoli/dsm.sys.erb')
+    content => template('tivolism/dsm.sys.erb')
   }
 
-  file { 'dsm.opt':
+  file { '/opt/tivoli/tsm/client/ba/bin/dsm.opt':
     path    => '/opt/tivoli/tsm/client/ba/bin/dsm.opt',
     ensure  => file,
-    owner   => $tivolism::params::user,
-    group   => $tivolism::params::group,
+    owner   => $tivolism::user,
+    group   => $tivolism::group,
     mode    => '0664',
-    content => template('tivoli/dsm.opt.erb')
+    content => template('tivolism/dsm.opt.erb')
   }
 
-  file { 'Inclexcl':
-    path    => $Inclexcl,
+  file { $tivolism::inclexcl:
+    path    => $tivolism::inclexcl,
     ensure  => file,
-    owner   => $tivolism::params::user,
-    group   => $tivolism::params::group,
+    owner   => $tivolism::user,
+    group   => $tivolism::group,
     mode    => '0664',
     replace => 'no'
   }
