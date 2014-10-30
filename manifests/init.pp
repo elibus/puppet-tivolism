@@ -9,7 +9,6 @@
 #
 class tivolism (
   $tcpserveraddress = $tivolism::params::tcpserveraddress,
-  $inclexcl = $tivolism::params::inclexcl,
   $package_name = $tivolism::params::package_name,
   $deps = $tivolism::params::deps,
   $additional_packages = $tivolism::params::additional_packages,
@@ -33,7 +32,6 @@ class tivolism (
 
   # validate parameters here
   validate_string($tcpserveraddress)
-  validate_absolute_path($inclexcl)
   validate_array($package_name)
   validate_array($deps)
   validate_array($additional_packages)

@@ -5,7 +5,6 @@
 #
 class tivolism::params (
   $tcpserveraddress = undef,
-  $inclexcl = undef,
   $package_name = [ 'TIVsm-API64', 'TIVsm-BA' ],
   $deps = [
     'compat-libstdc++-33.i686',

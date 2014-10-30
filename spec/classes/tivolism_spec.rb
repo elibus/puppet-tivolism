@@ -6,7 +6,6 @@ describe 'tivolism' do
       describe "tivolism class without any parameters on #{osfamily}" do
         let(:params) {{
           :tcpserveraddress    => '10.0.0.1',
-          :inclexcl            => '/path/to/my/inclexcl.file'
         }}
         let(:facts) {{
           :osfamily       => osfamily,
