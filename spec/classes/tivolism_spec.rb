@@ -9,7 +9,8 @@ describe 'tivolism' do
           :inclexcl            => '/path/to/my/inclexcl.file'
         }}
         let(:facts) {{
-          :osfamily     => osfamily,
+          :osfamily       => osfamily,
+          :concat_basedir => '/dne'
         }}
 
         it { should compile.with_all_deps }
@@ -28,7 +29,10 @@ describe 'tivolism' do
         it { should contain_package('libstdc++.x86_64').with_ensure('present') }
 
         it { should contain_file('/opt/tivoli/tsm/client/ba/bin/dsm.opt').with_ensure('file') }
-        it { should contain_file('/opt/tivoli/tsm/client/ba/bin/dsm.sys').with_ensure('file') }
+        it { should contain_file('/opt/tivoli/tsm/client/ba/bin/dsm.sys') }
+        it { should contain_concat('/opt/tivoli/tsm/client/ba/bin/dsm.sys').with_ensure('present') }
+
+        it { should contain_concat__fragment('dms.sys default') }
       end
     end
   end
