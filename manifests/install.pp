@@ -6,14 +6,7 @@ class tivolism::install {
     ensure => present,
   }
 
-  ensure_packages($tivolism::deps, {
-      ensure => present
-    }
-  )
+  ensure_packages($tivolism::deps)
 
-  ensure_packages($tivolism::additional_packages, {
-      ensure => latest
-    }
-  )
-
+  ensure_packages($tivolism::additional_packages)
 }

@@ -59,3 +59,5 @@ class tivolism (
   class { 'tivolism::service': } ->
   Class['tivolism']
 }
+
+
