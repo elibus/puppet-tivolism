@@ -72,6 +72,15 @@ The only class worth notice is the `tivolism::register`. Its purpose is to allow
 to concatenate arbitrary configuration to the default one.
 The example below will add the `Inclexcl` directive to the file.
 
+    # == Class: my_backup
+    #
+    # This class will configure my backup
+    #
+    # === Parameters
+    #
+    # [*inclexcl*]
+    #   set the Inclexcl parameter in dsm.sys
+    #
     class my_backup (
       $inclexcl = $my_backup::params::inclexcl,
     ) inherits my_backup::params {
