@@ -1,11 +1,19 @@
 # == Class: tivolism
 #
-# Full description of class tivolism here.
+# tivolism install and configure Tivoli Storage Manager for Linux
 #
 # === Parameters
 #
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
+# [*tcpserveraddress*]
+#   Tivoli Storage Manager Server IP
+# [*package_name*]
+#   Array of packages to be installed
+# [*deps*]
+#   Array of dependency packages to be installed
+# [*service_name*]
+#   Service to be kept up & running (default: dsmcad)
+# [*other*]
+#   Tivoli Storage Manager related params. See IBM docs
 #
 class tivolism (
   $tcpserveraddress = $tivolism::params::tcpserveraddress,
