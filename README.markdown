@@ -7,7 +7,6 @@
     * [Setup requirements](#setup-requirements)
     * [Beginning with tivolism](#beginning-with-tivolism)
 4. [Usage - Configuration options and additional functionality](#usage)
-5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
 5. [Limitations - OS compatibility, etc.](#limitations)
 6. [Development - Guide for contributing to the module](#development)
 
@@ -99,18 +98,11 @@ The example below will add the `Inclexcl` directive to the file.
     }
 
 
-##Reference
-
-Here, list the classes, types, providers, facts, etc contained in your module. This section should include all of the under-the-hood workings of your module so people know what the module is touching on their system but don't need to mess with things. (We are working on automating this section!)
-
 ##Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+Test on RedHat Enterprise Linux 6-7 x86_64, should work on Centos and 32 bits systems
 
 ##Development
 
-Since your module is awesome, other users will want to play with it. Let them know what the ground rules for contributing are.
+See: https://github.com/elibus/puppet-tivolism/blob/master/CONTRIBUTING.md
 
-##Release Notes/Contributors/Etc **Optional**
-
-If you aren't using changelog, put your release notes here (though you should consider using changelog). You may also add any additional sections you feel are necessary or important to include here. Please use the `## ` header.
