@@ -69,7 +69,35 @@ Defaults are as follows:
 
 ##Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing the fancy stuff with your module here.
+The only class worth notice is the `tivolism::register`. Its purpose is to allow users
+to concatenate arbitrary configuration to the default one.
+The example below will add the `Inclexcl` directive to the file.
+
+    class my_backup (
+      $inclexcl = $my_backup::params::inclexcl,
+    ) inherits my_backup::params {
+
+      include tivolism
+
+      # validate parameters here
+      validate_absolute_path($inclexcl)
+
+      class { 'bankit_backup::install': } ->
+      class { 'bankit_backup::config': }  ->
+      Class['bankit_backup']
+    }
+
+    # == Class my_backup::config
+    #
+    # This class is called from my_backup
+    #
+    class my_backup::config {
+
+      tivolism::register{ 'inclexcl':
+        content => template('bankit_backup/concat_dsm.sys.erb')
+      }
+    }
+
 
 ##Reference
 
