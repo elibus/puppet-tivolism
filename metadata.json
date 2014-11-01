@@ -1,6 +1,6 @@
 {
   "name": "elibus-tivolism",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "Marco Tizzoni",
   "summary": "Install and configure Tivoli Storage Manager",
   "license": "Apache 2.0",
