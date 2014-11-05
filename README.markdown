@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/elibus/puppet-tivolism.svg?branch=master)](https://travis-ci.org/elibus/puppet-tivolism)
+
 ####Table of Contents
 
 1. [Overview](#overview)
