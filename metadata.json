@@ -7,7 +7,7 @@
   "source": "https://github.com/elibus/puppet-tivolism.git",
   "project_page": "https://github.com/elibus/puppet-tivolism",
   "issues_url": "https://github.com/elibus/puppet-tivolism/issues",
-  "dependencies": [
+"dependencies": [
     {
       "name": "puppetlabs-stdlib",
       "version_requirement": ">= 1.0.0"
@@ -15,6 +15,34 @@
     {
       "name": "puppetlabs-concat",
       "version_requirement": ">= 1.1.0"
+    }
+  ],
+    "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 3.5"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": ">= 2.7"
     }
   ]
 }
